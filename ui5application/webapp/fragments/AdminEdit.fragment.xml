@@ -1,0 +1,33 @@
+<c:FragmentDefinition xmlns:form="sap.ui.layout.form"
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+>
+<Dialog state="Warning" contentWidth="500px">
+   
+    <buttons>
+        <Button text="UPDATE"  press="onProductUpdate"/>
+        <Button text="DELETE" press="onProductDelete" type="Reject"/>
+    </buttons>
+    <content>
+        <form:SimpleForm id="idSimpleFormAdminEdit">
+            <Image src="{mProducts>image}" width="160px" height="120px" />
+            <Label text="Product Name"/><Input value="{mProducts>name}" enabled="false"/>
+            <Label text="Catagory"/><Input value="{mProducts>catagory}" enabled="false"/>
+            <Label text="Price"/><Input value="{mProducts>Price}" id="idPriceInputAdminEdit"/>
+            <Label text="Description"/><Input value="{mProducts>desc}" id="idDescInputAdminEdit"/>
+            <Label text="Quantity"/><Input value="{mProducts>qty}" id="idQtyInputAdminEdit"/>
+        </form:SimpleForm>
+    </content>
+    <customHeader>
+        <Bar >
+            <contentLeft>
+                <Title text="UPDATE-ITEM"></Title>
+            </contentLeft>
+            <contentRight>
+                <Button icon="sap-icon://decline" press="AdminEditFragmentClose"/>
+            </contentRight>
+        </Bar>
+    </customHeader>
+    
+</Dialog>
+</c:FragmentDefinition>

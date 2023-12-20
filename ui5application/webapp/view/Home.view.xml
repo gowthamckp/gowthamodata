@@ -1,0 +1,37 @@
+<mvc:View controllerName="ui5application.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"  xmlns:form="sap.ui.layout.form">
+     <App id="Home">
+       <pages >
+       <Page class="HomePage" backgroundDesign="Transparent" title="E-Shopping" titleLevel="H1" titleAlignment="Center" >
+       <Panel backgroundDesign="Transparent">
+        
+        <HeaderContainer class="HomeHeader">
+            
+            <Button text="Sign up" press="oClick" type="Emphasized"/>
+           
+        </HeaderContainer>
+         
+        </Panel>
+
+        <Panel id="LoginPanel" class="LoginPanel" backgroundDesign="Transparent">
+        
+        <!-- <Title text="Login" textAlign="Center" width="300px" class="HomeLoginText"/> -->
+            <form:SimpleForm id="HomeLoginform" editable="true" backgroundDesign="Transparent" class="loginform">
+                <Title text="Login" textAlign="Center" width="300px" class="HomeLoginText"/>
+                <Label ></Label>
+                <form:content>
+                    <Input placeholder="User ID" id="Username" liveChange="UserName" />
+                    <Label/>
+                    <Input placeholder="Password / Phone Number" id="Password" liveChange="Password" type="Password"/>
+                    <Label/>
+
+                    <Button text="Login" press="oLogin"/>
+                </form:content>
+            </form:SimpleForm>
+      
+        </Panel>
+        </Page>
+       </pages> 
+    </App>
+</mvc:View>

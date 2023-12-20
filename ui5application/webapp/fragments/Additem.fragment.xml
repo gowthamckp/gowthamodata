@@ -1,0 +1,60 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:file="sap.ui.unified"
+>
+<Dialog contentWidth="400px" >
+
+
+  
+    <form:SimpleForm id="addSingleitem" editable="true" backgroundDesign="Transparent">
+        <form:content>
+            <Input placeholder="ProductName" id="ProductName" />
+            <Label/>
+            <Input placeholder="ProductCost" id="ProductPrice" type="Number"/>
+            <Label/>
+            <ComboBox selectedKey="--select--" items="{mProducts>/products}" placeholder="--Select--" selectionChange="oCatagorySelectedItem" id="oCatagorySelectedItem">
+                <c:Item key="{mProducts>catagory}"  text="{mProducts>catagory}"/>
+            
+            </ComboBox>
+            <Label/>
+            <Input placeholder="Product Description" id="ProductDesc" />
+            <Label/>
+            <Input placeholder="Enter Quantity" id="ProductQuantity" />
+            <Label/>
+            <Label text="image" class="Formlables" />
+          <file:FileUploader placeholder="img" uploadOnChange="true" change='ProductImagePicked' id="ProductImageUploader"/>
+
+          
+        </form:content>
+    </form:SimpleForm>
+    
+    <form:SimpleForm id="oCreateCatagory" visible="false">
+        <form:content>
+            <Input placeholder="Enter Catagory Name" id="CatagoryName" />
+            <Label/>
+
+            <Label text="image" class="Formlables" />
+          <file:FileUploader placeholder="img" uploadOnChange="true" change='CatagoryImagePicked' id="catagoryImageUploader"/>
+        </form:content>
+    </form:SimpleForm>
+<customHeader>
+    <Bar>
+        <contentLeft>
+    <Title text="ADD ITEM" width="300px"/>
+            
+        </contentLeft>
+        <contentMiddle>
+        </contentMiddle>
+        <contentRight>
+            <Button icon="sap-icon://decline" press="onAdditemCloseButton"/>
+        </contentRight>
+    </Bar>
+</customHeader>
+<buttons>
+    <Button text="CREATE" press="oAdminAdditem" id="addSingleitemButton"/>
+    
+</buttons>
+</Dialog>
+</c:FragmentDefinition>

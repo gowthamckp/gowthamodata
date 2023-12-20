@@ -1,0 +1,148 @@
+<mvc:View xmlns:table="sap.ui.table"
+	controllerName="ui5application.controller.AdminPage"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	displayBlock="true"
+	height="100%"
+	busyIndicatorDelay="0"
+>
+
+<!-- <SplitApp>
+    <masterPages>
+        <Page>
+            <content>
+                <List items="{mProducts>/products}" selectionChange="oSelectedItem" mode="SingleSelectMaster">
+                    <ObjectListItem icon="{mProducts>image}" title="{mProducts>catagory}" type="Active"/>
+                    
+                </List>
+            </content>
+            <customHeader>
+
+            </customHeader>
+            <footer>
+            </footer>
+            <headerContent>
+            </headerContent>
+            <landmarkInfo>
+            </landmarkInfo>
+            <subHeader>
+            </subHeader>
+        </Page>
+    </masterPages>
+
+    <detailPages>
+        <Page>
+            <content>
+                <List id="ProductslListDetailPage" items="{mProducts>}" itemPress="oViewDetail" >
+                    <items>
+                        <ObjectListItem icon="{mProducts>image}" number="{mProducts>Price}" numberUnit="INR" title="{mProducts>name}" type="Active"/>
+                       
+                    </items>
+                </List>
+            </content>
+            <customHeader>
+
+            </customHeader>
+            
+            <headerContent>
+                <Bar>
+                    <contentLeft>
+                    
+                    </contentLeft>
+                    <contentMiddle>
+                        
+                    </contentMiddle>
+                   
+                </Bar>
+            </headerContent>
+            <landmarkInfo>
+            </landmarkInfo>
+            <subHeader>
+            </subHeader>
+            <footer>
+                
+            </footer>
+        </Page>
+    </detailPages>
+</SplitApp> -->
+
+<App >
+    <pages>
+        <Page >
+            <content>
+                <table:Table id="table" rows="{mProducts>/allproducts}" selectionMode="Single" editable="true"  rowSelectionChange="oSelectedRow">
+                    <table:columns>
+                        <table:Column filterProperty="name" sortProperty="name">
+                            <Title  text="PRODUCTS"/>
+                            <table:template>
+                                <Text text="{mProducts>name}" wrapping="false"></Text>
+                            </table:template>
+                        </table:Column>
+
+                        <table:Column>
+                            <Title  text="IMAGE"/>
+                            <table:template>
+                                <!-- <Text text=""></Text> -->
+                                <Image width="110px" height="90px" src="{mProducts>image}"></Image>
+                            </table:template>
+                        </table:Column>
+
+                        <table:Column >
+                            <Title  text="DESCRIPTION"/>
+                            <table:template>
+                                <Text text="{mProducts>desc}"></Text>
+                            </table:template>
+                        </table:Column>
+
+                        <table:Column >
+                            <Title  text="PRICE"/>
+                            <table:template>
+                                <Text text="{mProducts>Price}"></Text>
+                            </table:template>
+                        </table:Column>
+
+                        <table:Column >
+                            <Title  text="QUANTITY"/>
+                            <table:template>
+                                <!-- <Text text="{mProducts>qty}"></Text> -->
+                                <ObjectStatus text="Items left: {mProducts>qty}" state="{path:'mProducts>qty', formatter: '.QuantityFormatter'}"></ObjectStatus>                                
+                            </table:template>
+                        </table:Column>
+
+                        <table:Column filterProperty="catagory" >
+                            <Title  text="CATAGORY"/>
+                            <table:template>
+                                <Text text="{mProducts>catagory}"></Text>
+                            </table:template>
+                        </table:Column>
+                    </table:columns>
+                </table:Table>
+            </content>
+            <customHeader>
+                <Bar >
+                    <contentRight>
+                        <SearchField placeholder="s e a r c h" search="filterGlobally" liveChange="liveSearch"  width="15rem"/>
+                        <Button text="OVERVIEW" icon="sap-icon://business-objects-experience" type="Emphasized" press="onCharPopup"/>
+                         <!-- <Button text="chart"  type="Emphasized" press="onCharPopup"/> -->
+                        <Button text="ADD ITEMS" icon="sap-icon://add" type="Emphasized" press="onAdminAddItems"/>
+                        <Button icon="sap-icon://log" press="onAdminLogout"/>
+                    </contentRight>
+                </Bar>
+            </customHeader>
+            <footer>
+                <Bar>
+                <contentLeft>
+                   
+                </contentLeft>
+                <contentMiddle>
+                    
+                </contentMiddle>
+                <contentRight>
+                   <!-- <Button text="Recent Activity" type="Emphasized"></Button> -->
+                </contentRight>
+            </Bar>
+            </footer>
+        </Page>
+    </pages>
+</App>
+</mvc:View>

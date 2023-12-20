@@ -1,0 +1,48 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+>
+<Dialog contentWidth="350px">
+    <beginButton>
+        
+    </beginButton>
+    <buttons>
+    </buttons>
+    <content>
+        <form:SimpleForm editable="true">
+            <form:content>
+                <Label text="ID"/><Input value="{mCurrentUser>/id}" enabled="false"/>
+                <Label text="Name"/><Input value="{mCurrentUser>/name}" enabled="false"/>
+                <Label text="Phone"/><Input value="{mCurrentUser>/phone}" enabled="false"/>
+                <Label text="Email"/><Input value="{mCurrentUser>/email}" enabled="false"/>
+                <Label text="City"/><Input value="{mCurrentUser>/city}" enabled="false"/>
+                <Label text="State"/><Input value="{mCurrentUser>/State}" enabled="false"/>
+            </form:content>
+            <form:title>
+            </form:title>
+            <form:toolbar>
+            </form:toolbar>
+        </form:SimpleForm>
+    </content>
+    <customHeader>
+        <Bar
+            design="Auto"
+            titleAlignment="None"
+        >
+            <contentLeft>
+                <Text text="PROFILE" />
+            </contentLeft>
+            <contentMiddle>
+            </contentMiddle>
+            <contentRight>
+                <Button icon="sap-icon://decline" press="oUserProfileCloseButton"/>
+            </contentRight>
+        </Bar>
+    </customHeader>
+    <endButton>
+    </endButton>
+    <subHeader>
+    </subHeader>
+</Dialog>
+</c:FragmentDefinition>

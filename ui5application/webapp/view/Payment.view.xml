@@ -1,0 +1,118 @@
+<mvc:View
+	controllerName="ui5application.controller.Payment"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	displayBlock="true"
+	height="100%"
+	busyIndicatorDelay="0"
+>
+<App>
+    <pages>
+        <Page id="invoice">
+            <content>
+                <Table items="{mCart>/data}">
+                    <columns>
+                        <Column>
+                            <Text text="TITLE"/>
+                        </Column>
+        
+                        <Column>
+                            <Text text="IMAGE"/>
+                           
+                        </Column>
+
+                        <Column>
+                            <Text text="PRICE"/>
+                        </Column>
+        
+                        <Column>
+                            <Text text="Quantity"/>
+                           
+                        </Column>
+        
+                        <Column >
+                            <Text text="Amount"/>
+                            <footer>
+                                <Button icon="sap-icon://receipt" id="TotalBill" type="Transparent" text="Total Bill: {bill>/bill}" />
+
+                            </footer>
+                        </Column>
+                    </columns>
+        
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{mCart>name}"/>
+                            </cells>
+        
+                            <cells>
+                               
+                                <StandardListItem icon="{mCart>image}"/>
+                                            
+                            </cells>
+
+                             <cells>
+                                <Text text="{mCart>price}"/>
+                            </cells>
+        
+
+                            <cells>
+                                <Text text="{mCart>qty}"/>
+                            </cells>
+        
+
+                            <cells>
+                                <Text text="{mCart>amount}" />
+                            </cells>
+        
+                        </ColumnListItem>
+        
+                       
+                    </items>
+                    
+                   
+                </Table>
+        
+            </content>
+            <customHeader>
+                <Bar
+                    design="Auto"
+                    titleAlignment="None"
+                >
+                    <contentLeft>
+                        <Button text="back" icon="sap-icon://nav-back" press="paymentToUperPage"/>
+                    </contentLeft>
+                    <contentMiddle>
+                        <Text text="Payment Info"/>
+                    </contentMiddle>
+                    <contentRight>
+                        <!-- <Button text="Download" icon="sap-icon://download-from-cloud" press="ondownloadBill"/> -->
+
+                    </contentRight>
+                </Bar>
+            </customHeader>
+            <footer>
+                <Bar
+                    design="Auto"
+                    titleAlignment="None"
+                >
+                    <contentLeft>
+                        
+                    </contentLeft>
+                    <contentMiddle>
+                    </contentMiddle>
+                    <contentRight>
+                        <Button text="PAY-BILL" icon="sap-icon://money-bills" press="onPay"/>
+                    </contentRight>
+                </Bar>
+            </footer>
+            <headerContent>
+            </headerContent>
+            <landmarkInfo>
+            </landmarkInfo>
+            <subHeader>
+            </subHeader>
+        </Page>
+    </pages>
+</App>
+</mvc:View>

@@ -1,0 +1,62 @@
+<c:FragmentDefinition
+xmlns:chart="sap.suite.ui.commons" xmlns:c="sap.ui.core"
+xmlns:form="sap.ui.layout.form" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:layout="sap.ui.layout"
+xmlns:viz="sap.viz.ui5.controls" xmlns:vizData="sap.viz.ui5.data" xmlns:vizFeeds="sap.viz.ui5.controls.common.feeds" xmlns="sap.m"
+>
+<Dialog contentWidth="550px" contentHeight="400px">
+    <beginButton>
+        
+    </beginButton>
+    <buttons>
+    </buttons>
+    <content>
+        <chart:ChartContainer autoAdjustHeight="true" id="chartContainer"  title="Reports">
+            <chart:ChartContainerContent icon="sap-icon://horizontal-stacked-chart" title="Sold Ctagory">
+            <chart:content>
+            <viz:VizFrame height="" id="idVizFrame" uiConfig="{applicationSet:'fiori'}"
+            vizProperties="{plotArea: { drawingEffect: 'glossy'}, title:{ text:'Data analysis through Reports'},dataLabel:{visible:true,showTotal:true}}"
+            vizType="column">
+            <viz:dataset>
+            <vizData:FlattenedDataset data="{mChart>/data}">
+            <vizData:dimensions>
+            <vizData:DimensionDefinition name="Year" value="{Year}"/>
+            </vizData:dimensions>
+            <vizData:measures>
+            <vizData:MeasureDefinition name="Laptop" value="{mChart>Laptop}"/>
+            <vizData:MeasureDefinition name="Mobile" value="{mChart>Mobile}"/>
+            <vizData:MeasureDefinition name="Tablets" value="{mChart>Tablets}"/>
+            <vizData:MeasureDefinition name="Tv" value="{mChart>Tv}"/>
+            </vizData:measures>
+            </vizData:FlattenedDataset>
+            </viz:dataset>
+            <viz:feeds>
+            <vizFeeds:FeedItem type="Measure" uid="valueAxis" values="Tv,Tablets,Mobile,Laptop"/>
+            <vizFeeds:FeedItem type="Dimension" uid="categoryAxis" values="Year"/>
+            </viz:feeds>
+            </viz:VizFrame>
+            </chart:content>
+            </chart:ChartContainerContent>
+            </chart:ChartContainer>
+    </content>
+    <customHeader>
+        <Bar
+            design="Auto"
+            titleAlignment="None"
+        >
+            <contentLeft>
+                <Text text="OVERVIEW"/>
+            </contentLeft>
+            <contentMiddle>
+            </contentMiddle>
+            <contentRight>
+                <Button icon="sap-icon://decline" press="oChartCloseButton"/>
+
+            </contentRight>
+        </Bar>
+    </customHeader>
+    <endButton>
+    </endButton>
+    <subHeader>
+    </subHeader>
+</Dialog>
+</c:FragmentDefinition>

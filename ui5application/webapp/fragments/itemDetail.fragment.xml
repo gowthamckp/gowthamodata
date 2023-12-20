@@ -1,0 +1,43 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+>
+
+<Dialog contentHeight="500px" contentWidth="500px" state="Information">
+    <beginButton>
+        
+    </beginButton>
+    <buttons>
+    </buttons>
+    <content>
+
+        <form:SimpleForm editable="true" id="itemDetailForm">
+            <Image src="{mProducts>image}" width="300px" height="200px"/>
+                <Label text="Title" class="ItemDetailsTitle"/> <Text text="{mProducts>name}" class="ItemDetailsinfo"/>
+                <Label text="Price" class="ItemDetailsTitle"/> <Text text="{mProducts>Price}" class="ItemDetailsinfo"/>
+                <Label text="Specifications" class="ItemDetailsTitle"/><Text text="{mProducts>desc}" class="ItemDetailsinfo"/>
+
+
+        </form:SimpleForm>
+    </content>
+    <customHeader>
+        <Bar
+            design="Auto"
+            titleAlignment="None"
+        >
+            <contentLeft>
+                
+            </contentLeft>
+            
+            <contentRight>
+                <Button icon="sap-icon://decline" press="oCloseItemDetailPopup"/>
+            </contentRight>
+        </Bar>
+    </customHeader>
+    <endButton>
+    </endButton>
+    <subHeader>
+    </subHeader>
+</Dialog>
+</c:FragmentDefinition>

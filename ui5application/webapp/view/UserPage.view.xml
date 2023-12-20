@@ -1,0 +1,98 @@
+<mvc:View
+	controllerName="ui5application.controller.UserPage"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	displayBlock="true"
+	height="100%"
+	busyIndicatorDelay="0" >
+<SplitApp>
+    <masterPages>
+        <Page>
+            <content>
+                <List items="{mProducts>/products}" selectionChange="oSelectedItem" mode="SingleSelectMaster">
+                    <ObjectListItem icon="{mProducts>image}" title="{mProducts>catagory}" type="Active"/>
+                    
+                </List>
+            </content>
+            <customHeader>
+
+            </customHeader>
+            <footer>
+            </footer>
+            <headerContent>
+            </headerContent>
+            <landmarkInfo>
+            </landmarkInfo>
+            <subHeader>
+            </subHeader>
+        </Page>
+    </masterPages>
+
+    <detailPages>
+        <Page>
+            <content>
+                <List id="ProductslListDetailPage" items="{mProducts>}" mode="SingleSelectLeft" selectionChange="oSelectedToAddCart" itemPress="oViewProductDetail">
+                    <items>
+                        
+                        
+                        <ObjectListItem icon="{mProducts>image}"  number=" Items left: {mProducts>qty}" title="{mProducts>name}" numberState="{path:'mProducts>qty', formatter: '.QuantityFormatter'}" type="Active">
+                           
+                                <ObjectAttribute text="Rs.{mProducts>Price}" />
+                                
+                                    
+                            
+                        </ObjectListItem>
+
+                    </items>
+                </List>
+            </content>
+            <customHeader>
+
+            </customHeader>
+            <footer>
+                <Bar
+                    design="Auto"
+                    titleAlignment="None"
+                >
+                    <contentLeft>
+                        
+                    </contentLeft>
+                    <contentMiddle>
+                    </contentMiddle>
+                    <contentRight>
+                        <Button text="Add to Cart" icon="sap-icon://add" type="Emphasized" press="onAddtoCartButton"/>
+                    </contentRight>
+                </Bar>
+            </footer>
+            <headerContent>
+                <Bar
+                    design="Auto"
+                    titleAlignment="None"
+                >
+                    <contentLeft>
+                        <Button text="Hi {mCurrentUser>/name}" press="onUserProfilePopup" icon="sap-icon://customer"/>
+                    </contentLeft>
+                    <contentMiddle>
+                        
+                    </contentMiddle>
+                    <contentRight>
+                        <SearchField search='onSearch' liveChange="liveSearch" type='text' enableSuggestions='true' suggestionItems='{mProducts>/allProducts}' suggest='onSuggest' width="400px" >
+                            <suggestionItems>
+                                <SuggestionItem text="{mProducts>name}" key="{mProducts>name}" description="{mProducts>desc}"/>
+                            </suggestionItems>
+                        </SearchField>
+
+                        <Button icon="sap-icon://cart" press="oCart"/>
+                        <Button icon="sap-icon://log" press="onUserLogout"/>
+
+                    </contentRight>
+                </Bar>
+            </headerContent>
+            <landmarkInfo>
+            </landmarkInfo>
+            <subHeader>
+            </subHeader>
+        </Page>
+    </detailPages>
+</SplitApp>
+</mvc:View>

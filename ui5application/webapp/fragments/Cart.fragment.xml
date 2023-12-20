@@ -1,0 +1,129 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+    xmlns:tab="sap.ui.table"
+>
+<Dialog
+    icon="sap-icon://cart-5"
+    contentWidth="650px"
+    title="Your Cart"
+>
+    <beginButton>
+        
+    </beginButton>
+    <buttons>
+    </buttons>
+    <content>
+
+        <!-- <tab:Table rows="{mCart>/data}" visibleRowCount="3" enableSelectAll="true" row>
+            <tab:columns>
+        
+                <tab:Column width="11rem">
+                    <Label text="Product Name" />
+                    <tab:template>
+                        <Image src="{mCart>image}" width="50px" height="50px"/>
+                    </tab:template>
+                </tab:Column>
+
+                <tab:Column width="11rem">
+                    <Label text="Product Name" />
+                    <tab:template>
+                        <Text text="{mCart>name}" />
+                    </tab:template>
+                </tab:Column>
+
+                <tab:Column width="11rem">
+                    <Label text="Product Name" />
+                    <tab:template>
+                        <Text text="{mCart>price}"/>
+                    </tab:template>
+                </tab:Column>
+
+                <tab:Column width="11rem">
+                    <Label text="Product Name" />
+                    <tab:template>
+                        <Input placeholder="Enter Qty"/>
+                    </tab:template>
+                </tab:Column>
+            </tab:columns>
+            
+        </tab:Table> -->
+        <Table items="{mCart>/data}" id="UserCartItem" selectionChange="oCartItemSelect" mode="Delete" delete='onDelete' >
+            <columns>
+                <Column>
+                    <Text text="TITLE"/>
+                </Column>
+
+                <Column>
+                    <Text text="PRICE"/>
+                </Column>
+
+                <Column>
+                    <Text text="IMAGE"/>
+                    
+                </Column>
+
+                <Column>
+                    <Text text="Quantity"/>
+                </Column>
+
+            </columns>
+
+            <items>
+                <ColumnListItem type="Active">
+                    <cells>
+                        <Text text="{mCart>name}"/>
+                    </cells>
+
+                     <cells>
+                        <Text text="{mCart>price}"/>
+                    </cells>
+
+                    <cells>
+                       
+                        <!-- <StandardListItem icon="{mCart>image}"/> -->
+                            <Image src="{mCart>image}" width="80px"/>
+                                
+                    </cells>
+
+                    <cells>
+                        <Input  placeholder="Available items: {mCart>qty}" type="Number" width="240px"/>
+                    </cells>
+                    
+                </ColumnListItem>
+
+               
+            </items>
+            
+           
+        </Table>
+
+    </content>
+    <customHeader>
+      <Bar
+          design="Auto"
+          titleAlignment="None"
+      >
+          <contentLeft>
+              <c:Icon hoverColor="green"
+                  size="25px"
+                  src="sap-icon://cart-5"
+                  width="25px"
+              />
+              
+          </contentLeft>
+          <contentMiddle>
+          </contentMiddle>
+          <contentRight>
+        <Button icon="sap-icon://decline" press="oCartCloseButton"/>
+
+          </contentRight>
+      </Bar>  
+    </customHeader>
+    <endButton>
+        <Button text="Proceed" icon="sap-icon://add-process" press="onPaymentPage" type="Accept"/>
+    </endButton>
+    <subHeader>
+    </subHeader>
+</Dialog>
+</c:FragmentDefinition>

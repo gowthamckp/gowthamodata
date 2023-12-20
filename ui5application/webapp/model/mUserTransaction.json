@@ -1,0 +1,18 @@
+{
+    "transactions":[
+        {
+            "userId":"U007890",
+            "userCarts":[]
+        },
+        {
+            "userId":"U007891",
+            "userCarts":[{
+                "name":"Lenovo",
+                "price":"500",
+                "image":""
+            }]
+        }
+        
+
+    ]
+}
